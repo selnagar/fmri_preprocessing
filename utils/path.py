@@ -1,3 +1,4 @@
+import logging
 import os
 
 
@@ -20,3 +21,23 @@ def join_or_make(a: str, *args: str) -> str:
             os.makedirs(a)
 
     return a
+
+
+def save_script(savepath: str, script: str) -> None:
+    """
+    Save a script to a file.
+
+    Args:
+        savepath (str): The path to save the script to.
+        script (str): The script to save.
+
+    """
+    with open(savepath, 'w') as f:
+        f.write(script)
+
+    logging.info(f'Script written to {savepath}')
+
+    try:
+        os.system(f'chmod a+rwx {savepath}')
+    except Exception as e:
+        logging.error(f'Error changing permissions:\n{e}')
