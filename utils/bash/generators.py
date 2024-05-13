@@ -6,6 +6,7 @@ import os
 from typing import Generator
 
 from utils.bash import generate_bash_for_subject
+from utils.fmaps import get_fmap_by_run_num
 from utils.parse import find_in_string
 from utils.path import join_or_make
 
@@ -108,7 +109,7 @@ class BashScriptGenerator:
 
             for func_json in func_jsons:
                 run_num = find_in_string(func_json, r'run-(\d+)')
-                fmap_num = self.get_fmap_by_run_num(run_num)
+                fmap_num = get_fmap_by_run_num(run_num, self.fmap_dict)
 
                 with open(func_json, 'r') as f:
                     data = json.load(f)

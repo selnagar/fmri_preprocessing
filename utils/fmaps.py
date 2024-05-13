@@ -1,4 +1,4 @@
-from ast import Dict, List
+from typing import Dict, List
 
 
 def get_fmap_by_run_num(val: str, dictionary: Dict[str, List[str]]) -> str:

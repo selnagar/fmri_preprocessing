@@ -1,8 +1,8 @@
 import os
 import sys
+sys.path.append('./')
 
 from utils.path import save_script
-sys.path.append('./')
 from utils.argparsers.bashgenparser import BashGenArgParser
 from utils.bash.generators import BashSequenceGenerator
 
